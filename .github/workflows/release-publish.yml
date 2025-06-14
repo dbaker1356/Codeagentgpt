@@ -21,15 +21,19 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: Codeagentgpt
 
       - name: Build
         run: npm run build
+        working-directory: Codeagentgpt
 
       - name: Run tests
         run: npm test
+        working-directory: Codeagentgpt
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm publish
+        working-directory: Codeagentgpt
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
